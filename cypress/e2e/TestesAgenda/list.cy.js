@@ -13,14 +13,15 @@ describe("Testes para o componente de agenda", () => {
     })
 
     it("testando edicao de contatos", () => {
-        cy.get('.edit').click()
+        cy.get('.edit').first().click()
         cy.get("input[type='text']").clear().type("Francisco");
         cy.get("input[type='email']").clear().type("francisco.11@gmail.com");
         cy.get("input[type='tel']").clear().type("11999999999");
+        cy.get('.alterar').first().click()
         cy.contains("Francisco").should("exist");
     })
 
     it("deletando um contato", () => {
-        cy.get('.delete').click()
+        cy.get('.delete').first().click()
     })
 })
